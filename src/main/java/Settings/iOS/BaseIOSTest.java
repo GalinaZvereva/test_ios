@@ -104,30 +104,25 @@ public class BaseIOSTest extends iOSTestCase {
             return false;
         }
     }
-//    protected boolean testTwo(String article){
-//        try {
-//            driver.findElement(By.id(""+article+""));
-//            return true;
-//        }catch (NoSuchElementException a){
-//            return false;
-//        }
-//    }
-//    protected void checkVisible(){
-//        WebElement One = driver.findElement(By.id("JavaScript"));
-//        WebElement Two = driver.findElement(By.id("Milky Way"));
-//        String articleOne = One.getText();
-//        String articleTwo = Two.getText();
-//
-//        if(testOne(articleOne)){
-//            Assertions.assertTrue(driver.findElement(By.id(""+articleTwo+"")).isDisplayed(), articleTwo + " is not Displayed");
-//            System.out.println("Visible only one article: " + articleTwo);
-//        }
-//        else if(testTwo(articleTwo)){
-//            Assertions.assertTrue(driver.findElement(By.id(""+articleOne+"")).isDisplayed(), articleOne + " is Not Displayed");
-//            System.out.println("Visible only one article: " + articleOne);
-//        }
-//
-//    }
+    protected boolean testTwo(String article){
+        try {
+            driver.findElement(By.id(""+article+""));
+            return true;
+        }catch (NoSuchElementException a){
+            return false;
+        }
+    }
+    protected void checkVisible(String One, String Two){
+        if(testOne(One)){
+            Assertions.assertTrue(driver.findElement(By.id(""+Two+"")).isDisplayed(), Two + " is not Displayed");
+            System.out.println("Visible only one article: " + Two);
+        }
+        else if(testTwo(Two)){
+            Assertions.assertTrue(driver.findElement(By.id(""+One+"")).isDisplayed(), One + " is Not Displayed");
+            System.out.println("Visible only one article: " + One);
+        }
+
+    }
 
 
 }
