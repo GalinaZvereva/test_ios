@@ -12,8 +12,8 @@ public class RunIOSTests extends iOSTestCase {
         iOSFirstTest ft = new iOSFirstTest(driver);
         ft
                 .clickNextButton()
-                .clickOnSwitch()
-                .clickInButtonGetStarted();
+                .clickButtonGetStarted()
+                .assertLogotypeIsVisible();
     }
     @Test
     public void startSearchPageObject(){
@@ -33,8 +33,8 @@ public class RunIOSTests extends iOSTestCase {
                 .pressButtonW()
                 .goToSavedArticles()
                 .closeWindow()
-                .longTouchOnArticle(articleTwo)
+                .longTouchOnArticle(articleOne)
                 .deleteThisArticle()
-                .testCheckArticle(articleTwo);
+                .testCheckArticle(articleOne,articleTwo);
     }
 }

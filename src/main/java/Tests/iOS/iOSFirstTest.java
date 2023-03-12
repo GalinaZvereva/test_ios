@@ -1,8 +1,10 @@
 package Tests.iOS;
 
 import Settings.iOS.BaseIOSTest;
-import io.appium.java_client.MobileBy;
 import io.appium.java_client.ios.IOSDriver;
+import org.junit.jupiter.api.Assertions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class iOSFirstTest extends BaseIOSTest {
     public iOSFirstTest(IOSDriver driver) {
@@ -10,24 +12,23 @@ public class iOSFirstTest extends BaseIOSTest {
     }
 
     public iOSFirstTest clickNextButton(){
-        String element = "label == \"Next\" AND name == \"Next\" AND type == \"XCUIElementTypeButton\"";
-        setWait(MobileBy.iOSNsPredicateString("label == 'The free encyclopedia'"));
-        tapElement(MobileBy.iOSNsPredicateString(element));
-        setWait(MobileBy.iOSNsPredicateString("label == \"New ways to explore\""));
-        tapElement(MobileBy.iOSNsPredicateString(element));
-        setWait(MobileBy.iOSNsPredicateString("label == \"Search in over 300 languages\""));
-        tapElement(MobileBy.iOSNsPredicateString(element));
-        setWait(MobileBy.iOSNsPredicateString("label == \"Help make the app better\""));
+        setWait(By.id("The free encyclopedia"));
+        tapElement(By.xpath("//XCUIElementTypeStaticText[@name='Next']"));
+        setWait(By.id("New ways to explore"));
+        tapElement(By.xpath("//XCUIElementTypeStaticText[@name='Next']"));
+        setWait(By.id("Search in over 300 languages"));
+        tapElement(By.xpath("//XCUIElementTypeStaticText[@name='Next']"));
         return this;
     }
-    public iOSFirstTest clickOnSwitch(){
-        String element = "label == \"Send usage reports\" AND name == \"Send usage reports\" AND value == \"0\"";
-        tapElement(MobileBy.iOSNsPredicateString(element));
+    public iOSFirstTest clickButtonGetStarted(){
+        tapElement(By.xpath("//XCUIElementTypeStaticText[@name='Get started']"));
         return this;
     }
-    public iOSFirstTest clickInButtonGetStarted(){
-        String element = "label == \"Get started\" AND name == \"Get started\" AND type == \"XCUIElementTypeButton\"";
-        tapElement(MobileBy.iOSNsPredicateString(element));
+    public iOSFirstTest assertLogotypeIsVisible(){
+        String xPath_wiki_logo = "//XCUIElementTypeButton[@name='wikipedia']";
+        setWait(By.xpath(xPath_wiki_logo));
+        WebElement wikipedia = driver.findElement(By.xpath(xPath_wiki_logo));
+        Assertions.assertTrue(wikipedia.isDisplayed(), "Cant found Wikipedia logotype");
         return this;
     }
 }

@@ -49,12 +49,8 @@ public class SearchPageObject extends BaseIOSTest {
         tapElement(By.id("Close"));
         return this;
     }
-    public SearchPageObject checkArticles(String articleOne, String articleTwo){
-        assertArticleInList(articleOne, articleTwo);
-        return this;
-    }
-    public SearchPageObject testCheckArticle(String art){
-        testOne(art);
+    public SearchPageObject testCheckArticle(String art,String art2){
+        checkVisible(art,art2);
         return this;
     }
 

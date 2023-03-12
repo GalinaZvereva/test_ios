@@ -101,25 +101,27 @@ public class BaseIOSTest extends iOSTestCase {
             driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+article+"']"));
             return true;
         }catch (NoSuchElementException a){
+            a.getCause();
             return false;
         }
     }
     protected boolean testTwo(String article){
         try {
-            driver.findElement(By.id(""+article+""));
+            driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+article+"']"));
             return true;
         }catch (NoSuchElementException a){
+            a.getCause();
             return false;
         }
     }
     protected void checkVisible(String One, String Two){
         if(testOne(One)){
-            Assertions.assertTrue(driver.findElement(By.id(""+Two+"")).isDisplayed(), Two + " is not Displayed");
-            System.out.println("Visible only one article: " + Two);
+            Assertions.assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+One+"']")).isDisplayed(), Two + " is not Displayed");
+            System.out.println("Visible only one article: " + One);
         }
         else if(testTwo(Two)){
-            Assertions.assertTrue(driver.findElement(By.id(""+One+"")).isDisplayed(), One + " is Not Displayed");
-            System.out.println("Visible only one article: " + One);
+            Assertions.assertTrue(driver.findElement(By.xpath("//XCUIElementTypeStaticText[@name='"+Two+"']")).isDisplayed(), One + " is Not Displayed");
+            System.out.println("Visible only one article: " + Two);
         }
 
     }
