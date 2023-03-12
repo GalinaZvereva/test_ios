@@ -15,7 +15,7 @@ public class iOSFirstTest extends BaseIOSTest {
         tapElement(MobileBy.iOSNsPredicateString(element));
         setWait(MobileBy.iOSNsPredicateString("label == \"New ways to explore\""));
         tapElement(MobileBy.iOSNsPredicateString(element));
-        setWait(MobileBy.iOSNsPredicateString("label == \"Search in nearly 300 languages\""));
+        setWait(MobileBy.iOSNsPredicateString("label == \"Search in over 300 languages\""));
         tapElement(MobileBy.iOSNsPredicateString(element));
         setWait(MobileBy.iOSNsPredicateString("label == \"Help make the app better\""));
         return this;

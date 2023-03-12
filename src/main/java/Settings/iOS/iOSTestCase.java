@@ -1,6 +1,7 @@
 package Settings.iOS;
 
 import io.appium.java_client.ios.IOSDriver;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
@@ -14,7 +15,7 @@ public class iOSTestCase {
     private final static String AppiumServer = "127.0.0.1";
     private final static String AppiumPort = "4723";
     private final static String platformName = "iOS";
-    private final static String deviceName = "iPhoneX";
+    private final static String deviceName = "iPhone 11";
     private final static String platformVersion = "15.5";
     @BeforeEach
     public void setUp() throws MalformedURLException {
@@ -28,8 +29,8 @@ public class iOSTestCase {
         capabilities.setCapability("app", file.getAbsolutePath());
         driver = new IOSDriver((new URL("http://" + AppiumServer + ":" + AppiumPort + "/wd/hub")), capabilities);
     }
-//    @AfterEach
-//    public void finishTest(){
-//        driver.quit();
-//    }
+    @AfterEach
+    public void finishTest(){
+        driver.quit();
+    }
 }
