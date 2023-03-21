@@ -11,11 +11,11 @@ import java.net.URL;
 
 public class iOSTestCase {
     protected IOSDriver driver;
-//    protected XCUITestOptions options;
+
     private final static String AppiumServer = "127.0.0.1";
     private final static String AppiumPort = "4723";
     private final static String platformName = "iOS";
-    private final static String deviceName = "iPhone 11";
+    private final static String deviceName = "iPhone 6s";
     private final static String platformVersion = "15.5";
     @BeforeEach
     public void setUp() throws MalformedURLException {
@@ -23,8 +23,6 @@ public class iOSTestCase {
         capabilities.setCapability("deviceName", deviceName);
         capabilities.setCapability("platformName", platformName);
         capabilities.setCapability("platformVersion", platformVersion);
-//        capabilities.setCapability("appPackage","org.wikipedia");
-//        capabilities.setCapability("appActivity",".main.MainActivity");
         File file = new File("src/main/resources", "Wikipedia.app");
         capabilities.setCapability("app", file.getAbsolutePath());
         driver = new IOSDriver((new URL("http://" + AppiumServer + ":" + AppiumPort + "/wd/hub")), capabilities);
